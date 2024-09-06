@@ -1,0 +1,82 @@
+<div class="container py-10">
+  <div class="cart-page" *ngIf="product$ | async as products">
+    <div class="w-full grid grid-cols-3 gap-4">
+      <div class="col-span-2 mt-4">
+        <span class="text-xl text-gray-500">Giỏ hàng của tôi</span>
+        <table class="w-full border-t mt-4 border-t-gray-500">
+          <thead>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products; let i = index">
+              <td class="product-col flex gap-4">
+                <img
+                  class="h-32 w-32 object-cover"
+                  [src]="product.img"
+                  alt=""
+                />
+                <div class="p-title justify-center flex flex-col gap-4">
+                  <span>{{ product.name }}</span>
+                  <span>{{ product.price }} đ</span>
+                </div>
+              </td>
+              <td class="quantity-col px-4">
+                <div
+                  class="border flex justify-between px-4 items-center mt-2 text-gray-500"
+                >
+                  <fa-icon
+                    class="text-xs cursor-pointer"
+                    (click)="changeQuantity(product, false)"
+                    [icon]="faMinus"
+                  ></fa-icon>
+                  <span>{{ product.cartQuantity }}</span>
+                  <fa-icon
+                    class="text-xs cursor-pointer"
+                    (click)="changeQuantity(product, true)"
+                    [icon]="faPlus"
+                  ></fa-icon>
+                </div>
+              </td>
+              <td class="quantity-col">
+                <span>{{ product.cartQuantity * getPrice(product) }} đ</span>
+              </td>
+              <td
+                (click)="removeFromCart(product)"
+                class="quantity-col cursor-pointer"
+              >
+                <fa-icon [icon]="faTrash"></fa-icon>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-span-1 mt-4">
+        <span class="text-xl text-gray-500">Tóm tắt đơn hàng</span>
+        <div
+          class="border-t mt-4 border-t-gray-500 flex text-gray-500 flex-col gap-4 pb-4 border-b border-b-gray-500"
+        >
+          <span class="mt-4">Tổng từng phần: {{ calcTotal(products) }}đ</span>
+          <span>Giao hàng dự kiến</span>
+        </div>
+        <div class="flex pt-4 flex-col gap-4 w-full">
+          <span>Tổng: {{ calcTotal(products) }}đ</span>
+          <button
+            class="h-10 w-full mt-4 self-center text-gray-300 bg-gray-900"
+          >
+            Thanh toán
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-5 mt-4">
+      <span>Nhập mã khuyến mãi</span>
+      <span>Thêm ghi chú</span>
+    </div>
+  </div>
+</div>
+<!-- Cart Page Section Begin -->
+
+<!-- Cart Page Section End -->

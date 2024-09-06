@@ -1,0 +1,76 @@
+<section class="pt-20 container">
+  <span class="text-6xl inline-flex justify-center w-full text-gray-900"
+    >Nhập thông tin tại đây</span
+  >
+  <div class="mt-40 grid grid-cols-5 gap-20">
+    <div class="col-span-1">
+      <span class="text-gray-500"
+        >Mọi thắc mắc vui lòng liên hệ với chúng tôi qua đây</span
+      >
+      <div class="flex mt-20">
+        <ul class="flex flex-col gap-8">
+          <li class="text-gray-500">Thông tin liên hệ</li>
+          <li class="text-gray-500">
+            Tel: <span class="text-gray-900">(+84) 326.699.081</span>
+          </li>
+          <li class="text-gray-500">
+            Email:
+            <span class="text-gray-900">{{
+              "contact@hokopaperincese.vn"
+            }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-span-1"></div>
+    <div class="col-span-3 flex flex-col">
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex flex-col gap-2">
+          <label class="text-gray-500" for="name"><i> Tên của bạn </i> </label>
+          <input
+            class="outline-none border-b-2 p-2 border-b-gray-300"
+            id="name"
+            placeholder="Fullname"
+            name="name"
+            type="text"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-gray-500" for="email"><i> Email </i> </label>
+          <input
+            class="outline-none border-b-2 p-2 border-b-gray-300"
+            placeholder="Email address"
+            id="email"
+            name="email"
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 mt-4">
+        <label class="text-gray-500" for="phone"><i> Số điện thoại </i> </label>
+        <input
+          class="outline-none border-b-2 p-2 border-b-gray-300"
+          placeholder="Phone number"
+          id="phone"
+          name="phone"
+          type="text"
+        />
+      </div>
+      <div class="flex flex-col gap-2 mt-8">
+        <label class="text-gray-500" for="phone"
+          ><i> Câu trả lời dài </i>
+        </label>
+        <textarea
+          class="outline-none border-b-2 p-2 border-b-gray-300"
+          placeholder="Write Your Request"
+          id="phone"
+          name="phone"
+          type="text"
+        ></textarea>
+      </div>
+      <button class="h-10 w-40 mt-4 self-center text-gray-300 bg-gray-900">
+        SUBMIT
+      </button>
+    </div>
+  </div>
+</section>

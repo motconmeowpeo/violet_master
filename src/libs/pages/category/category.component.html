@@ -1,0 +1,64 @@
+<div class="container py-10">
+  <span class="text-4xl font-medium">GIẤY HƯƠNG HOKO</span>
+</div>
+<div class="w-full flex flex-col px-10"></div>
+<!-- Categories Page Section Begin -->
+<ng-container *ngIf="!isLoading; else elseTemplate">
+  <section class="categories-page spad">
+    <div class="container">
+      <div class="grid grid-cols-3 gap-10">
+        <div
+          *ngFor="let product of data; let i = index"
+          class="col-span-1 col-md-6"
+        >
+          <div class="single-product-item w-full">
+            <figure>
+              <img
+                class="w-full max-h-[390px] object-cover"
+                [src]="product.img"
+                alt=""
+              />
+            </figure>
+            <div class="product-text">
+              <a class="mt-2" [routerLink]="'/product-page/' + product.id">
+                <h6>{{ product.name }}</h6>
+              </a>
+              <p>
+                Giá: <span class="font-medium">{{ product.price }}</span>
+              </p>
+            </div>
+            <div
+              class="w-full border flex justify-between px-4 items-center mt-2 text-gray-500"
+            >
+              <fa-icon
+                class="text-xs cursor-pointer"
+                (click)="changeQuantity(i, false)"
+                [icon]="faMinus"
+              ></fa-icon>
+              <span>{{ product.cartQuantity }}</span>
+              <fa-icon
+                class="text-xs cursor-pointer"
+                (click)="changeQuantity(i, true)"
+                [icon]="faPlus"
+              ></fa-icon>
+            </div>
+
+            <button
+              (click)="addToCart(product)"
+              class="h-8 text-gray-300 text-center px-2 w-full mt-2 bg-gray-900"
+            >
+              Thêm vào giỏ hàng
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>
+<ng-template #elseTemplate>
+  <div class="w-full flex items-center justify-center h-72 max-h-full">
+    <app-loading></app-loading>
+  </div>
+</ng-template>
+
+<!-- Categories Page Section End -->

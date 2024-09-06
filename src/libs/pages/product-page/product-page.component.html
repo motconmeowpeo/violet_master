@@ -1,0 +1,79 @@
+<!-- Page Add Section Begin -->
+<div class="container pt-10">
+  <div class="page-breadcrumb">
+    <a href="#">Trang chủ</a>
+    <a href="#"> / Sản phẩm</a>
+  </div>
+
+  <ng-container *ngIf="!isLoading; else elseTemplate"> </ng-container>
+  <ng-template #elseTemplate>
+    <div class="w-full flex items-center justify-center h-96 max-h-full">
+      <app-loading></app-loading>
+    </div>
+  </ng-template>
+
+  <section *ngIf="product" class="mt-10 grid grid-cols-2 gap-10">
+    <div class="col-span-1 flex flex-col">
+      <img class="h-[600px]" [src]="product.img" alt="" srcset="" />
+      <div class="mt-10 flex flex-col gap-2">
+        <span class="text-gray-500" *ngIf="product.ingredient"
+          >Thành phần: {{ product.ingredient }}</span
+        >
+        <span class="text-gray-500" *ngIf="product.time"
+          >Thời gian đốt: {{ product.time }}</span
+        >
+        <span class="text-gray-500" *ngIf="product.quantity"
+          >Số lượng: {{ product.quantity }}</span
+        >
+        <span class="text-gray-500" *ngIf="product.weight"
+          >Trọng lượng: {{ product.weight }}</span
+        >
+        <span class="text-gray-500" *ngIf="product.nsx"
+          >NSX: {{ product.nsx }}</span
+        >
+        <span class="text-gray-500" *ngIf="product.hsx"
+          >HSD: {{ product.hsx }}</span
+        >
+        <span class="text-gray-500" *ngIf="product.made">{{
+          product.made
+        }}</span>
+      </div>
+    </div>
+    <div class="flex flex-col">
+      <span class="mt-4 text-5xl text-gray-500">{{ product.name }}</span>
+      <span class="text-gray-500">SKU: 000{{ product.id }}</span>
+      <span class="mt-4 text-gray-500">{{ product.price }} đ</span>
+      <label class="mt-4 text-gray-500" for="quantity">Số lượng</label>
+      <input
+        class="max-w-14 border p-1 text-gray-500 border-gray-900"
+        type="text"
+        name="quantity"
+        (change)="changeQuantity($event)"
+        [value]="product.cartQuantity"
+      />
+      <div class="flex items-center gap-2 mt-2">
+        <button
+          (click)="addToCart()"
+          class="h-8 text-gray-300 text-center px-2 w-full bg-green-900"
+        >
+          Thêm vào giỏ hàng
+        </button>
+        <span
+          class="inline-flex items-center cursor-pointer justify-center w-8 h-8 p-1 border-2 border-gray-900"
+          ><fa-icon [icon]="faHeart"></fa-icon
+        ></span>
+      </div>
+      <button
+        (click)="addToCart()"
+        class="h-8 text-gray-300 text-center px-2 mt-2 w-full bg-gray-900"
+      >
+        Mua ngay
+      </button>
+      <div class="mt-10 flex flex-col gap-8" *ngIf="product.value">
+        <span class="text-gray-500">Thông tin sản phẩm</span>
+        <span class="text-gray-500">Công dụng: {{ product.value }}</span>
+        <hr />
+      </div>
+    </div>
+  </section>
+</div>

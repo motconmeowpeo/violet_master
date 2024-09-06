@@ -1,0 +1,84 @@
+<div class="container p-20 min-h-[500px]">
+  <div class="grid gap-10 grid-cols-4 w-full min-h-[500px]">
+    <div class="col-span-2 flex items-center justify-center h-full">
+      <span class="max-w-[500px] text-center font-semibold text-5xl"
+        >CHÀO MỪNG BẠN ĐẾN VỚI HOKO!</span
+      >
+    </div>
+    <form
+      [formGroup]="form"
+      class="col-span-2 flex flex-col items-center h-full border-2 border-black rounded-2xl p-12 py-20"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="flex flex-col w-full">
+        <label for="username" class="font-medium text-xs">Tên đăng nhập</label>
+        <input
+          formControlName="email"
+          name="username"
+          type="text"
+          placeholder="Nhập tên đăng nhập của bạn vào đây"
+          class="rounded-2xl mt-2 border border-black h-8 text-xs px-4"
+        />
+      </div>
+      <div class="flex flex-col w-full mt-4">
+        <label for="password" class="font-medium text-xs">Mật khẩu</label>
+        <input
+          formControlName="password"
+          name="password"
+          type="text"
+          placeholder="Nhập mật khẩu của bạn vào đây"
+          class="rounded-2xl mt-2 border border-black h-8 text-xs px-4"
+        />
+      </div>
+      <div class="flex justify-between w-full mt-4 pr-1">
+        <div class="flex">
+          <input
+            name="remember"
+            type="checkbox"
+            placeholder="Ghi nhớ mật khẩu"
+            class=""
+          />
+          <label for="remember" class="font-medium text-xs ml-2"
+            >Ghi nhớ mật khẩu</label
+          >
+        </div>
+        <div class="flex">
+          <label for="remember" class="font-medium text-xs ml-2 cursor-pointer"
+            >Quên mật khẩu ?</label
+          >
+        </div>
+      </div>
+      <div class="flex gap-2 mt-4">
+        <button
+          class="h-10 w-40 mt-4 self-center text-gray-300 bg-gray-900"
+          [ngClass]="
+            form.invalid
+              ? 'cursor-no-drop border-black border'
+              : 'hover:opacity-90 '
+          "
+        >
+          Đăng Nhập
+          <i class="zmdi zmdi-arrow-right"></i>
+        </button>
+        <button
+          class="h-10 w-40 mt-4 self-center hover:opacity-90 text-gray-300 bg-gray-900"
+        >
+          Tạo Tài Khoản
+          <i class="zmdi zmdi-arrow-right"></i>
+        </button>
+      </div>
+      <div class="flex flex-col gap-10 mt-10">
+        <span>Đăng nhập tài khoản với</span>
+
+        <div class="flex gap-8 w-full justify-center">
+          <button class="w-10 h-10">
+            <img src="assets/facebook.png" alt="" srcset="" />
+          </button>
+          <button class="w-10 h-10">
+            <img src="assets/google.png" alt="" srcset="" />
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

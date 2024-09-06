@@ -1,0 +1,56 @@
+<!-- Header Section Begin -->
+<header>
+  <div
+    class="border-b-2 p-2 border-gray-300 w-full h-24 flex items-center justify-center"
+  >
+    <img
+      routerLink="/home"
+      class="h-full object-cover"
+      src="assets/img/logo-hoko.png"
+      alt=""
+    />
+  </div>
+</header>
+<div class="w-full p-4 border-b-2 border-gray-300">
+  <div class="container flex justify-between">
+    <ul class="flex gap-4 font-semibold">
+      <li class="">
+        <fa-icon class="item" [icon]="faSignal"></fa-icon>
+      </li>
+      <li>
+        <a class="item text-gray-800 hover:text-gray-500" routerLink="/home"
+          >Trang chủ</a
+        >
+      </li>
+      <li>
+        <a class="item text-gray-800 hover:text-gray-500" routerLink="/category"
+          >Sản phẩm
+        </a>
+      </li>
+      <li>
+        <a class="item text-gray-800 hover:text-gray-500" routerLink="/about"
+          >Về chúng tôi</a
+        >
+      </li>
+      <li>
+        <a class="item text-gray-800 hover:text-gray-500" routerLink="/contact"
+          >Liên hệ</a
+        >
+      </li>
+    </ul>
+    <div class="flex items-center justify-center gap-2">
+      <div
+        class="h-10 w-16 rounded-2xl p-1 flex items-center justify-center cursor-pointer border border-gray-500"
+        routerLink="/cart"
+      >
+        Giỏ
+      </div>
+      <div
+        class="h-10 w-10 rounded-full p-1 flex items-center justify-center cursor-pointer border border-gray-500"
+        routerLink="/sign-in"
+      >
+        <fa-icon [icon]="faUser"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
